@@ -5,7 +5,7 @@ import lombok.*;
 import javax.validation.constraints.*;
 import java.util.*;
 
-@Data
+@Data//getter , setter hepsini getiryor
 public class RegisterRequest {
 
     @NotBlank

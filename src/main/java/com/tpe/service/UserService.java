@@ -33,7 +33,7 @@ public class UserService {
         Set<Role> roles = new HashSet<>();
         roles.add(role);
         User user = new User();
-        user.setFirstName(registerRequest.getFirstName());
+        user.setFirstName(registerRequest.getFirstName());//Dto dan aldik
         user.setLastName(registerRequest.getLastName());
         user.setUserName(registerRequest.getUserName());
         user.setRoles(roles);

@@ -11,7 +11,7 @@ import org.springframework.web.filter.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.*;
-@Component
+
 public class AuthTokenFilter extends OncePerRequestFilter {
 
     @Autowired
@@ -61,9 +61,9 @@ public class AuthTokenFilter extends OncePerRequestFilter {
     }
 
     @Override
-    protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
+    protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {// kullanici securuty katmanina girmeden buraya girebilsin diye yaptik
         AntPathMatcher antPathMatcher = new AntPathMatcher();
-        return antPathMatcher.match("/register", request.getServletPath()) ||// kullanici securuty katmanina girmeden buraya girebilsin diye yaptik
+        return antPathMatcher.match("/register", request.getServletPath()) ||
                 antPathMatcher.match("/login" , request.getServletPath());
     }
 }

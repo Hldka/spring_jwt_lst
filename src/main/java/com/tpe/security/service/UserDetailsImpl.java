@@ -20,15 +20,15 @@ public class UserDetailsImpl implements UserDetails {
 
     private String userName;
 
-    @JsonIgnore // client tarafına giderse , password gitmesin
+    @JsonIgnore // client tarafına giderse , password gitmesin(inf loop icinde kullanmistik)
     private String password;
 
     private  Collection<? extends GrantedAuthority> authorities;
 
-    public static UserDetailsImpl build(User user) {
-        List<SimpleGrantedAuthority> authorities = user.getRoles().stream().
-                map(role-> new SimpleGrantedAuthority(role.getName().name())).
-                collect(Collectors.toList());
+    public static UserDetailsImpl build(User user) {// benimpojo Class'im
+        List<SimpleGrantedAuthority> authorities = user.getRoles().stream().//collection oldugu icin lamda kullanabilirim
+                map(role-> new SimpleGrantedAuthority(role.getName().name())).// enum yapinin ismine ulasmak icin
+                collect(Collectors.toList());// bu role set yapidan geldigi icin list yapi ile aldim
         return new UserDetailsImpl(user.getId(),
                 user.getUserName(),
                 user.getPassword(),

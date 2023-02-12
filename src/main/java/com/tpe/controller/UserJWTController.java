@@ -21,7 +21,7 @@ public class UserJWTController {
     private UserService userService;
 
     @Autowired
-    private JwtUtils jwtUtils;
+    private JwtUtils jwtUtils;// jwt ürettigim claas lazim
 
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -36,7 +36,7 @@ public class UserJWTController {
     }
 
     // !!! ************** Login ***********************
-    @PostMapping("/login")
+    @PostMapping("/login")//token oldugu icin postmapping
     public ResponseEntity<String> login (@Valid @RequestBody LoginRequest loginRequest) {
 
         Authentication authentication = authenticationManager.authenticate( new UsernamePasswordAuthenticationToken(loginRequest.getUserName(),
