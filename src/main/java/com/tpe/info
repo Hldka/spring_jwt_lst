@@ -17,3 +17,8 @@ CONFIGURATION(1)-->websecurityConfig
 
  UserDetails(3)-->UserDetailImp ve UserDetailServiceImpl de yapiyprum
  1.DB deki User entity mi security deki UserDetail'e uygun hale getirme
+
+ expire time
+ Vade zamani
+
+ jwt, springsecurity önünde olcak
